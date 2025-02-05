@@ -14,6 +14,7 @@ class SaludoTest extends TestCase
         $this->assertArrayHasKey('codigo', $resultado);
 
         // Verifica que el resultado es un string
+        
         $this->assertIsString($resultado['saludo']);
 
         // Verifica que el resultado contiene un saludo válido
