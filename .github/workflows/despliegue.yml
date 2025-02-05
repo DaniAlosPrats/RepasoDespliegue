@@ -23,6 +23,23 @@ jobs:
       - name: Install dev dependencies
         run: composer install --dev
 
+      - name: List files in the repository (for debugging)
+        run: |
+          echo "Listing files in the root directory:"
+          ls -la
+
+          echo "Listing files in the tests directory:"
+          ls -la tests
+
+      - name: Check if PHPUnit is installed
+        run: |
+          if [ -f ./vendor/bin/phpunit ]; then
+            echo "PHPUnit is installed"
+          else
+            echo "PHPUnit is not installed"
+            exit 1
+          fi
+
       - name: Run tests
         run: ./vendor/bin/phpunit tests || ./vendor/bin/phpunit
 
